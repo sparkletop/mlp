@@ -16,7 +16,7 @@ rrand(0, 100)
 
 
 // Ofte er det en god idé at fordele instrukserne over flere linjer
-// Hvis vi vil have SuperCollider til at udføre instrukserne umiddelbart efter hinanden, kan vi gøre dette ved hjælp parenteser og ;
+// Hvis vi vil have SuperCollider til at udføre instrukserne umiddelbart efter hinanden, kan vi gøre dette ved hjælp parenteser og ; (semikolon)
 (
 "Endnu et fantastisk tal:".postln;
 rrand(50, 100).postln;
@@ -50,7 +50,7 @@ Pdef(\eksempel,
 		\dur, Prand([0.2, 0.3], inf),
 		\legato, 1.2,
 	)
-).play
+).play;
 )
 
 (
@@ -59,5 +59,5 @@ Pdef(\eksempel,
 	var sig = Saw.ar(lfo);
 	sig = LPF.ar(sig, lfo * 4);
 	sig.dup * 0.1;
-}.play
+}.play;
 )
