@@ -5,7 +5,7 @@ s.boot;
 
 /* --- Grundlag for generativ komposition i SuperCollider: Patterns ---
 
-Generativ komposition kan være kernen i den kreative proces, hvilket ofte er tilfældet inden for computermusikken. Men i bredere forstand er generativ komposition også en tilgang hvormed vi kan generere materialer til brug i mere traditionel komposition. Generativ komp skabe variation, nye klange, rytmer, melodier osv. inden for
+Generativ komposition kan være kernen i den kreative proces, hvilket ofte er tilfældet inden for computermusikken. Men i bredere forstand er generativ komposition også en tilgang hvormed vi kan generere samples, sekvenser, variationer mm. til brug i mere traditionel komposition.
 
 I SuperCollider udgør de såkaldte patterns et centralt redskab til generativ komposition, og som udgangspunkt er det derfor vigtigt at lære, hvordan man arbejder med patterns. Alle navne på SuperColliders patterns starter belejligt nok med stort P - fx Pbind, Pseq, Pwhite og Prand.
 
