@@ -38,7 +38,7 @@ Window.closeAll
 // 3A.3: Visualisering af lyd-output i frekvensdomænet med s.freqscope
 
 // Vi kan vise SuperColliders output i frekvensdomænet sådan her:
-s.freqscope
+s.freqscope;
                                         /*
 Brug s.freqscope-teknikken til at besvare følgende spørgsmål:
 - Hvad kendetegner overtonespektrene for de forskellige bølgeformer fra øvelse 3A.1 og 3A.2?
