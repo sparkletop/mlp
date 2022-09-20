@@ -105,9 +105,8 @@ s.freqscope;
 
 // .ar - generer lydsignal (audio rate), anvendes typisk til lydkilder og filtre
 {SinOsc.ar * 0.1}.play;
-
 // .kr - generer kontrolsignal (control rate), anvendes typisk til LFO'er og envelopes
-{SinOsc.kr(1)}.plot;
+{SinOsc.kr(1)}.plot(1);
 
 // .range og .exprange - justerer outputtet fra en UGen, så det ligger mellem et nyt min og max
 {SinOsc.ar.range(50, 1000)}.plot;     // bemærk Y-aksen
@@ -122,5 +121,5 @@ s.freqscope;
 
 
 
-// Udvalget af UGens i dette dokument er kraftigt inspireret af Eli Fieldsteels liste over "essential UGens"
+// Udvalget af UGens i dette dokument er kraftigt inspireret af Eli Fieldsteels liste over "essential UGens", som kan findes her:
 "https://uofi.app.box.com/s/1bfva2kan3ntmgey2345goc73snjzpwt".openOS

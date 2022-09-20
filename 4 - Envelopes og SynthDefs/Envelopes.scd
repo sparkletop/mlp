@@ -74,13 +74,13 @@ For at bruge Env-baserede envelopes skal vi anvende EnvGen, som er en envelope-g
 
 /* --- Design dine egne envelopes ---
 I SuperCollider er der rig mulighed for at opfinde nye envelopes (ud over de indbyggede envelopes, som vi kigger på nedenfor). Vi kan definere vores egne envelopes med Env.new på følgende måde:
-- Først angiver vi en liste med varigheder af de enkelte segmenter.
-- Dernæst angiver vi en liste med niveauer, som udgør start- og slutpunkter for de enkelte segmenter.
-- Til sidst kan vi vælge at angive en eller flere såkaldte kurve-værdier, som definerer hvordan segmenterne skal være formet - lige eller krum. Læs nærmere herom i dokumentationen for Env.
+- Først angiver vi en liste med niveauer, som udgør start- og slutpunkter for de enkelte segmenter.
+- Dernæst angiver vi en liste med varigheder af de enkelte segmenter. Denne liste vil altid være ét element kortere end listen med niveauer.
+- Til sidst kan vi vælge at angive en eller flere såkaldte kurve-værdier, som definerer hvordan segmenterne skal være formet - lige, krum, eksponentiel etc. Læs nærmere herom i dokumentationen for Env.
 
 Her er et par eksempler: */
 Env.new([0, 1, 0], [0.2, 1]).plot;
-Env.new([0, 1, 0.2, 0.5, 0], [0.1, 1, 0.3, 3], \sin).plot;
+Env.new([0, 1, 0.2, 0.5, 0], [0.1, 1, 0.3, 3], \exp).plot;
 Env.new([500, 800, 400, 150], [1, 2, 3], [2, 5, -3]).plot;
 
 /* Lad os definere en ny envelope med tre segmenter, som vi vil bruge til at styre frekvensen for en oscillator:
@@ -106,7 +106,7 @@ Env.new([500, 800, 400, 150], [1, 2, 3], [2, 5, -3]).plot;
 
 // Env.circle har næsten præcis samme syntaks som Env.new, vi skal blot tilføje en enkelt varighed til listen med segmentvarigheder - nemlig den tid det tager at vende tilbage til begyndelsen af envelopen, når vi looper.
 (
-{ // Samme eksempel som ovenfor, noteret
+{ // Samme eksempel som ovenfor, dog tilpasset Env.circle med et ekstra tidsinterval (0.24)
 	var env = EnvGen.kr(
 		Env.circle(
 			[200, 800, 100, 50],
@@ -166,7 +166,7 @@ s.plotTree;
 {PinkNoise.ar * EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * 0.1}.play;
 {PinkNoise.ar * EnvGen.kr(Env.perc, doneAction: 2) * 0.1}.play;
 
-
+// Om man bruger "doneAction: 2" eller "doneAction: Done.freeSelf" er således helt valgfrit. Førstnævnte er kortest at skrive, men sidstnævnte er umiddelbart lettest at forstå, når man man læser koden.
 
 
 
