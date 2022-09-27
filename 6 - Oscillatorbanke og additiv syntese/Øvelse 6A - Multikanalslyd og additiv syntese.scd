@@ -46,15 +46,15 @@ OBS: Nedenstående SynthDef er en udmærket skabelon som kan udvides og udfyldes
 
 Fremstil en kompleks klang ved hjælp af additiv syntese med sinustoner:
 - Klangen skal bestå af mindst tre forskellige overtoner (harmonisk forhold til freq)
-- Klangen skal bestå af mindst to forskellige partialtoner (inharmonisk forhold til freq)
-- Hver tone skal tildeles sin egen unikke (med forskellige attack- og release-tider)
-- Hver tone skal tildeles sin egen maks-amplitude
+- Klangen skal derudover indeholde mindst to forskellige partialtoner (inharmonisk forhold til freq)
+- Hver tone skal tildeles sin egen unikke envelope (med forskellige attack- og release-tider)
+- Hver tone skal tildeles sin egen max-amplitude
 - Tonerne skal summeres (dette kan gøres automatisk, hvis man anvender Mix.fill)
 
 Bonus:
 - Tilføj et element af filtreret støj helt i begyndelsen af anslaget
 - Tilføj en sub-oktav, dvs. en tone, som klinger en oktav under freq
-- Gør mængden (lydstyrke) af anslagsstøj og sub-aktov justerbar ved at tilføje argumenter
+- Gør mængden (lydstyrke) af anslagsstøj og sub-oktav justerbar ved at tilføje argumenter og varier disse ved at tilføje patterns og nøgler til Pbind-kompositionen
 
 */
 (
@@ -63,7 +63,7 @@ SynthDef(\additivo, {
 	attack = 0.01, release = 1, gate = 1;
 	var env = EnvGen.kr(Env.asr(attack, 1, release), gate, doneAction: Done.freeSelf);
 	// udfyld herunder
-	var sig =
+	var sig = Pulse.ar(freq);
 
 
 
@@ -74,7 +74,7 @@ SynthDef(\additivo, {
 )
 
 (
-// afprøv din SynthDef med denne enkle komposition
+// Afprøv din SynthDef med denne enkle komposition
 TempoClock.tempo = 125/60;
 Pbind(
 	\instrument, \additivo,
