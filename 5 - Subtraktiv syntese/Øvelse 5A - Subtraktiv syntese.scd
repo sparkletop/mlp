@@ -1,8 +1,8 @@
-// --- Øvelse 5A: SUbtraktivs --- //
+// --- Øvelse 5A: Anvendelse af filtre --- //
 
 
 
-/* 4A.1: Vælg og indstilling af filtre
+/* 5A.1: Valg og indstilling af filtre
 
 Brug følgende filtre til at modificere klangen af hvid støj
 - Et low pass-filter med cutoff-frekvens på 1000hz
@@ -20,7 +20,7 @@ Brug følgende filtre til at modificere klangen af hvid støj
 
 
 
-/* 4A.2: Modulation af filtre
+/* 5A.2: Modulation af filtre
 
 Brug følgende kilder til at modulere cutoff-frekvensen for et low pass-filter, så cutoff-frekvensen bevæger sig mellem 500hz og 1000hz (brug .range eller .exprange):
 - En LFO (vælg selv bølgeform og passende frekvens)
@@ -39,7 +39,7 @@ Brug følgende kilder til at modulere cutoff-frekvensen for et low pass-filter, 
 
 
 
-/* 4A.3: Fleksibel, subtraktiv SynthDef
+/* 5A.3: Fleksibel, subtraktiv SynthDef
 
 Skriv en SynthDef, som gør brug af subtraktiv syntese. SynthDef'en skal overholde følgende krav:
 
@@ -55,8 +55,6 @@ Skriv en SynthDef, som gør brug af subtraktiv syntese. SynthDef'en skal overhol
 
 - Filterets rq-værdi er 0.5
 
-- Skriv en Pbind-komposition, hvor
-
 Bonus:
 - Justér koden, således at filterets cutoff-frekvens bevæger sig i takt med envelope-generatoren, fra 2 til 3 oktaver over oscillatorfrekvensen (og tilbage igen)
 
@@ -65,7 +63,6 @@ Bonus:
 - Justér koden, således at filterets rq-værdi gøres fleksibel vha. et SynthDef-argument
 
 
-- Skriv en Pbind-komposition, hvor ovenstående variationsmuligheder demonstreres
 */
 (
 SynthDef(\subtraktor, { // udfyld herunder ⬇
@@ -76,3 +73,10 @@ SynthDef(\subtraktor, { // udfyld herunder ⬇
 }).add;
 )
 
+// Skriv en Pbind-komposition, hvor ovenstående variationsmuligheder demonstreres
+(
+Pbind(
+	\instrument, \subtraktor, // udfyld herunder ⬇
+
+).play;
+)
