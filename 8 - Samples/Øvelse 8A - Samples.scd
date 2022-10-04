@@ -40,7 +40,7 @@
 	// rate = LFPulse.kr(1).range(0.5, 2);
 	// rate = SinOsc.kr(1).range(-1, 1);
 	// rate = SinOsc.kr(1).range(0.5, 2);
-	rate = SinOsc.kr([1, 1.02]).range(1, 1.5);
+	// rate = SinOsc.kr([1, 1.02]).range(1, 1.5);
 	// rate = LFNoise1.kr(2.dup).exprange(0.5, 4);
 	// rate = Line.kr(-5, 5, 10, doneAction: 2);
 
