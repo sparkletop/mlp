@@ -1,6 +1,8 @@
 // --- Øvelse 8A: Additiv syntese og multikanalslyd --- //
 
 // Først: Indlæs et sample i en buffer gemt under variablen ~buffer. Hvis du ikke har en lydfil klar selv, kan du bruge den nederste linje herunder i stedet med et indbygget sample fra SuperCollider.
+
+// OBS: Til øvelserne skal der anvendes et mono-sample
 ~buffer = Buffer.read(s,      );  // <-- udfyld her med dit eget sample
 ~buffer = Buffer.readChannel(s, channels: [0], path:   );  // <-- brug denne, hvis dit sample er i stereo
 
@@ -64,7 +66,7 @@ Kompositionen skal baseres på ét sample og realiseres ved hjælp af nedenståe
 (
 SynthDef(\sample, {
 	arg amp = 0.1, out = 0, pan = 0,
-	rate = 1, startPosition = 0,
+	rate = 1, startPos = 0,
 	buffer, loop = 0, t_reset = 1,
 	drive = 0, cutoff = 20000,
 	atk = 0.005, sus = 1, rel = 0.2, gate = 1;
@@ -77,13 +79,13 @@ SynthDef(\sample, {
 		bufnum: buffer,
 		rate: rate * BufRateScale.kr(buffer),
 		trigger: t_reset,
-		startPos: startPosition.linlin(0, 1, 0, BufFrames.kr(buffer) - 2),
+		startPos: startPos.linlin(0, 1, 0, BufFrames.kr(buffer) - 2),
 		loop: loop
 	);
 
 	sig = (sig * drive.linexp(0, 1, 1, 100)).tanh; // drive/distortion
 
-	sig = LPF.ar(sig, cutoff.clip(20, 20000));
+	sig = RLPF.ar(sig, cutoff.clip(20, 20000), 0.1);
 
 	sig = sig * env;
 
@@ -93,8 +95,8 @@ SynthDef(\sample, {
 }).add;
 )
 
-
 (
+TempoClock.tempo = 60/60;
 Pbind(
 	\instrument, \sample,   // justér koden herunder ⬇
 
@@ -104,7 +106,9 @@ Pbind(
 	\loop, 1,
 
 	\dur, 1,
-	\legato, 1,
+	\legato, 0.5,
+	\drive, 0,
+	\cutoff, 20000,
 
 	\pan, 0,
 	\db, -20,
