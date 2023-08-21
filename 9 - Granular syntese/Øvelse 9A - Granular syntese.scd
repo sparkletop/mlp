@@ -29,7 +29,7 @@ Hvordan påvirker disse parametre og modulationer lyden? Hvilke æstetiske mulig
 {
 	GrainBuf.ar(
 		numChannels: 2,
-		trigger: Impulse.ar(200),
+		trigger: Impulse.ar(10),
 		dur: 0.025,
 		sndbuf: ~buffer,
 		rate: BufRateScale.kr(~buffer) * 1,
