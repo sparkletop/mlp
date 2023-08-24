@@ -12,11 +12,11 @@ rrand(0, 100)
 
 
 // Hvis vi gerne vil gøre mere end én ting ad gangen, kan vi adskille vores instrukser (statements) til SuperCollider ved hjælp af ; (semikolon)
-"Et fantastisk tal:".postln; rrand(0, 10).postln
+"Et fantastisk tal:".postln; rrand(0, 100).postln
 
 
 // Ofte er det en god idé at fordele instrukserne over flere linjer
-// Hvis vi vil have SuperCollider til at udføre instrukserne umiddelbart efter hinanden, kan vi gøre dette ved hjælp parenteser og ; (semikolon)
+// Hvis vi vil have SuperCollider til at udføre instrukserne umiddelbart efter hinanden, kan vi gøre dette ved hjælp parenteser og ; (semikolon). Læg mærke til hvordan begge linjer herunder bliver udført på én gang:
 (
 "Endnu et fantastisk tal:".postln;
 rrand(50, 100).postln;
@@ -38,10 +38,12 @@ Pbind(\degree, [0, 2, 4]).play
 
 
 
-// Prøv at ændre fx på tallene i eksemplerne herunder - eksekvér løbende for at høre resultatet
-// Hvad mon de enkelte kodelinjer gør?
+// Herunder fremgår to kodeblokke. Leg med blokkene på følgende måde:
+// 1. Eksekvér kodeblokken for at høre resultatet.
+// 2. Prøv løbende at ændre på tallene og eksekvér kodeblokken igen.
+// 3. Hvad mon de enkelte linjer i kodeblokkene gør?
 (
-Pdef(\eksempel,
+Pdef(\eksempel1,
 	Pbind(
 		\degree, Pseq([0, 1, 2, 4], inf),
 		\scale, Scale.minor,
@@ -52,12 +54,16 @@ Pdef(\eksempel,
 	)
 ).play;
 )
+Pdef(\eksempel1).stop;
 
 (
-{
-	var lfo = SinOsc.kr(1).exprange(220, 440);
-	var sig = Saw.ar(lfo);
-	sig = LPF.ar(sig, lfo * 4);
+Ndef(\eksempel2, {
+	var freq = 330;
+	var lfoFreq = LFTri.kr(0.2).range(1, 16);
+	var lfo = LFNoise0.kr(lfoFreq).bipolar(24).round(4).midiratio;
+	var sig = Pulse.ar(freq * lfo);
 	sig.dup * 0.1;
-}.play;
+}).play;
 )
+Ndef(\eksempel2).stop;
+
