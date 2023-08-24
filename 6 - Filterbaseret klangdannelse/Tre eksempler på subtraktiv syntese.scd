@@ -15,12 +15,13 @@ SynthDef(\clarinet, {
 
 	// lydstyrke styres med en envelope
 	sig = sig * EnvGen.kr(Env.asr, gate, doneAction: Done.freeSelf) * 0.1;
-	Out.ar(0, sig);
+	Out.ar(0, sig.dup);
 }).add;
 )
-( // En lille melodi
+
+(
 Pmono(\clarinet,
-	\degree, Pseq([0, 1, 2, 3, 4, 5, 6, 7]),
+	\degree, Pseq([0, 1, 2, 3, 4, 5, 6, 7], 2),
 	\octave, Pseq([4, 5], inf).stutter(2),
 	\dur, 0.15,
 ).play;
@@ -46,7 +47,7 @@ SynthDef(\stringz, {
 
 	// lydstyrke styres med en separat envelope
 	sig = sig * EnvGen.kr(Env.adsr(0.2, 0.4), gate, doneAction: Done.freeSelf) * 0.1;
-	Out.ar(0, sig);
+	Out.ar(0, sig.dup);
 }).add;
 )
 
@@ -72,7 +73,7 @@ Pbind(
 
 	var sig = resonance + snares;
 
-	// filteret simulerer trommens spektromorfologi, dvs. klanglig forandring over tid
+	// Et dynamisk low pass filter simulerer trommens klanglige forandring over tid
 	sig = LPF.ar(sig, XLine.ar(8000, 2500, 0.010));
 
 	// sidst men ikke mindst en envelope til at styre volumen

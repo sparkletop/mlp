@@ -1,7 +1,7 @@
-// --- Øvelse 3A: Grundlæggende brug af UGens --- //
+// --- Øvelse 4: Grundlæggende brug af UGens --- //
 
 
-/* 3A.1: Blip båt
+/* 4.1: Blip båt
 
 Afspil følgende lyde med peak-amplitude på 0.1:
 - Sinustone med frekvens på 220Hz
@@ -14,7 +14,7 @@ Afspil følgende lyde med peak-amplitude på 0.1:
 
 
 
-/* 3A.2: Visualisering af bølgeformer i tidsdomænet med .plot
+/* 4.2: Visualisering af bølgeformer i tidsdomænet med .plot
 
 SuperCollider kan plotte lyd-outputtet i en graf. Nedenstående linje viser eksempelvis outputtet fra SinOsc, målt over et tidsrum på 10 millisekunder:         */
 { SinOsc.ar }.plot(0.010);
@@ -35,20 +35,20 @@ Window.closeAll
 
 
 
-// 3A.3: Visualisering af lyd-output i frekvensdomænet med s.freqscope
+// 4.3: Visualisering af lyd-output i frekvensdomænet med s.freqscope
 
 // Vi kan vise SuperColliders output i frekvensdomænet sådan her:
 s.freqscope;
                                         /*
 Brug s.freqscope-teknikken til at besvare følgende spørgsmål:
-- Hvad kendetegner overtonespektrene for de forskellige bølgeformer fra øvelse 3A.1 og 3A.2?
+- Hvad kendetegner overtonespektrene for de forskellige bølgeformer fra øvelse 4.1 og 4.2?
 - Hvad styrer musen i nedenstående eksempel?   */
 { Blip.ar(220, MouseX.kr(1,50)) * 0.1 }.play
 
 
 
 
-/* 3A.4: Modulation af lydstyrke (amplitude)
+/* 4.4: Modulation af lydstyrke (amplitude)
 
 Når vi arbejder med volumen, skalerer vi typisk amplituden med en faktor mellem 0 og 1. Sørg derfor altid for, en outputtet fra en LFO, der modulerer volumen, bevæger sig i intervallet 0-1. Det kan gøres let med .unipolar - sammenlign fx disse to bølger:   */
 {[LFTri.ar, LFTri.ar.unipolar]}.plot;
@@ -66,7 +66,7 @@ Anvend følgende UGens til at modulere amplituden i intervallet 0-1 for en savta
 
 
 
-/* 3A.5: Modulation af tonehøjde (frekvens)
+/* 4.5: Modulation af tonehøjde (frekvens)
 
 Når vi modulerer frekvens, er det typisk nødvendigt at justere modulatorens egen frekvens og outputrækkevidde. Brug hertil .range eller .exprange som vist her: */
 (
@@ -113,7 +113,7 @@ Vælg selv en passende frekvens mellem 0Hz og 20Hz til modulatoren. Udfyld koden
 
 
 
-/*  3A.6: Bonus-øvelse - modulation af pulsbredde
+/*  4.6: Bonus-øvelse - modulation af pulsbredde
 
 Modulér pulsbredden for en firkantet bølgeform ved hjælp af en savtakket bølgeform (LFSaw).
 - Modulatorens frekvens skal være 0.2.

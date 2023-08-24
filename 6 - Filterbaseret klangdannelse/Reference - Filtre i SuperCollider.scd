@@ -8,9 +8,12 @@
 FreqScope(server: s).window.alwaysOnTop_(true);
 
 
-// Lydkilden i næsten alle eksempler er hvid støj
+// Filtre kan bruges på mange forskellige lydkilder, men hvid støj er særligt nyttigt til at visualisere, hvordan filtre påvirker lydsignalet, da hvid støj teoretisk set har samme lydstyrke i hele frekvensspektret.
 {WhiteNoise.ar * 0.1}.play
-// Cutoff-frekvensen er næsten i alle eksempler 440hz
+
+
+// Cutoff-frekvensen er i næsten alle eksempler 440hz
+
 
 // Low/high pass filter, 2. orden
 {LPF.ar(WhiteNoise.ar * 0.5, 440)}.play

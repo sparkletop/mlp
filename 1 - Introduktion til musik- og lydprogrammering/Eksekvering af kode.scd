@@ -59,7 +59,7 @@ Pdef(\eksempel1).stop;
 (
 Ndef(\eksempel2, {
 	var freq = 330;
-	var lfoFreq = LFTri.kr(0.2).range(1, 16);
+	var lfoFreq = LFTri.kr(0.3).range(1, 16);
 	var lfo = LFNoise0.kr(lfoFreq).bipolar(24).round(4).midiratio;
 	var sig = Pulse.ar(freq * lfo);
 	sig.dup * 0.1;

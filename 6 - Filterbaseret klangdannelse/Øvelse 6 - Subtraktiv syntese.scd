@@ -1,8 +1,8 @@
-// --- Øvelse 5A: Anvendelse af filtre --- //
+// --- Øvelse 6A: Anvendelse af filtre --- //
 
 
 
-/* 5A.1: Valg og indstilling af filtre
+/* 6A.1: Valg og indstilling af filtre
 
 Brug følgende filtre til at modificere klangen af hvid støj
 - Et low pass-filter med cutoff-frekvens på 1000hz
@@ -20,12 +20,12 @@ Brug følgende filtre til at modificere klangen af hvid støj
 
 
 
-/* 5A.2: Modulation af filtre
+/* 6A.2: Modulation af filtre
 
-Brug følgende kilder til at modulere cutoff-frekvensen for et low pass-filter, så cutoff-frekvensen bevæger sig mellem 500hz og 1000hz (brug .range eller .exprange):
-- En LFO (vælg selv bølgeform og passende frekvens)
-- En XLine-envelope, vælg selv tidsinterval
+Brug følgende kilder til at modulere cutoff-frekvensen for et low pass-filter, så cutoff-frekvensen bevæger sig mellem 500hz og 1000hz (brug fx .range eller .exprange):
 - Den allerede noterede envelope
+- En XLine-envelope, vælg selv tidsinterval
+- En LFO (vælg selv bølgeform og passende frekvens)
 */
 (
 {
@@ -39,7 +39,7 @@ Brug følgende kilder til at modulere cutoff-frekvensen for et low pass-filter, 
 
 
 
-/* 5A.3: Fleksibel, subtraktiv SynthDef
+/* 6A.3: Fleksibel, subtraktiv SynthDef
 
 Skriv en SynthDef, som gør brug af subtraktiv syntese. SynthDef'en skal overholde følgende krav:
 

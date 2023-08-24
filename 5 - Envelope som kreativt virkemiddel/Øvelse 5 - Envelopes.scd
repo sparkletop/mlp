@@ -1,7 +1,7 @@
-// --- Øvelse 4A: Envelopes --- //
+// --- Øvelse 5: Envelopes --- //
 
 
-/* 4A.1: Brug af envelopes til modulation af amplitude
+/* 5.1: Brug af envelopes til modulation af amplitude
 
 Brug følgende envelopes til at modulere amplituden for en firkantet bølgeform:
 - Env.perc, Env.linen, Env.sine og Env.triangle
@@ -23,7 +23,7 @@ Env.perc(1, 3).plot; // .plot kan være en nyttig hjælp
 
 
 
-/* 4A.2: Hjemmelavede envelopes
+/* 5.2: Hjemmelavede envelopes
 
 Definér din egen envelope med mindst tre segmenter. Envelopen skal anvendes til at modulere frekvens. Trin og tidsintervaller vælges frit.
 */
@@ -46,7 +46,7 @@ Definér din egen envelope med mindst tre segmenter. Envelopen skal anvendes til
 
 
 
-/* 4A.3: Vedvarende envelopes
+/* 5.3: Vedvarende envelopes
 
 Modificér nedenstående kode, så følgende overholdes:
 - Der går et halvt sekund, før vi rammer maksimal lydstyrke.
@@ -67,7 +67,7 @@ Modificér nedenstående kode, så følgende overholdes:
 
 
 
-/* BONUS: 4A.4: Hjemmelavede LFO'er med Env.circle
+/* BONUS: 5.4: Hjemmelavede LFO'er med Env.circle
 
 Design din egen LFO ved hjælp af Env.circle. Se et eksempel i SuperColliders dokumentation eller i dokumentet vedr. envelopes.
 */
