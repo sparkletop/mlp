@@ -1,9 +1,12 @@
 // --- Øvelse 1B: Første bip --- //
 
 
-// Nedenstående øvelse handler om at producere lyde på SuperColliders lydserver. Der er ingen krav til forudgående kendskab, man
+// Nedenstående øvelse handler om at producere lyde på SuperColliders lydserver. Der er ingen krav til forudgående kendskab.
 
-// Herunder fremgår to kodeblokke. Leg med dem på følgende måde:
+// Start først lydserveren:
+s.boot;
+
+// Herunder fremgår to kodeblokke - Eksempel 1 og 2. Leg med eksemplerne på følgende måde:
 // 1. Eksekvér kodeblokken og lyt til resultatet.
 // 2. Prøv løbende at ændre på kompositionen og eksekvér kodeblokken igen. Dette kaldes live coding!
 // 3. Overvej hvad de enkelte kodelinjer gør ved lyden.
