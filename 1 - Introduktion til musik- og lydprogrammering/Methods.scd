@@ -1,47 +1,65 @@
-/* --- Methods ---
+// --- Methods ---
 
-SuperColliders funktionalitet er knyttet til såkaldte "methods"
+// Start lydserveren for at høre lydeksemplerne herunder
+s.boot;
 
-I kode kan man ofte se disse methods lige efter punktummer.
-Her er et par eksempler:   */
+
+// Alt hvad man kan gøre i SuperCollider, altså SuperColliders funktionalitet, er knyttet til "methods". I kode kan man typisk se disse methods lige efter punktummer. Fx sådan her:
 "Hello world".postln;  // method'en .postln viser objekter i post window, i dette tilfælde et stykke tekst
-69.midicps;            // method'en .midicps omregner fra MIDI-tonehøjde til Hertz
-7.midiratio;           // method'en .midiratio omregner en given tonal afstand i halvtoner til skaleringsfaktor i frekvens
-7.even;                // method'en .even fortæller om et givet tal er lige elller ej
-[1, 2, 3].reverse;     // method'en .reverse vender en liste om
-[1, 2, 3].scramble;    // method'en .reverse vender en liste om
-TempoClock.tempo;      // TempoClocks method .tempo angiver tempo i BPS
+Scale.minorPentatonic; // .minorPentatonic angiver (kombineret med Scale) en mol-pentaton skala
+69.midicps;            // method'en .midicps omregner fra MIDI-tonehøjde til frekvens, målt i Hertz
 
 
-// Class methods bruger vi direkte på "classes"
-Pbind.new();           // genererer en ny Pbind
-Array.interpolation(); // genererer et nyt array ved hjælp af interpolation
+
+
+// --- To slags methods: Class methods og Instance methods --- //
+// CLASS METHODS bruger vi direkte på classes, dvs. de blå ord, som er skrevet med Stort Begyndelsesbogstav
+Pbind.new;             // opretter en ny Pbind
 TempoClock.tempo;      // finder eller angiver tempo
+SinOsc.ar;             // opretter en audio-rate sinus-oscillator
+SinOsc.kr;             // opretter en control-rate sinus-oscillator
 
 
-// Instance methods bruger vi på "instances", dvs. konkrete forekomster af bestemte typer af objekter
-Pbind().play;              // vi afspiller en ny Pbind (der er tale om en konkret forekomst på grund af implicit .new)
-{PinkNoise.ar * 0.1}.play  // vi afspiller noget pink støj (boot serveren for lyd)
-3.sqrt;                    // vi beder om kvadratroden af tallet 3
-
-
-// En method, som vi bruger hele tiden: .new
+// En særlig class method, som vi bruger hele tiden: .new
 // .new skaber et nyt objekt (en "instance" eller forekomst) af den klasse, man angiver før punktummet
-Scale.new() // - en ny skala
-Pseq.new()  // - opskrift på en ny sekvens
-Prand.new() // - opskrift på en ny tilfældighedsgenerator
-
-
 // .new er så almindeligt, at der findes en genvej - nemlig helt at udelade .new. Derfor giver disse to udtryk samme resultat:
-Pwhite.new(0, 10, 5)
-Pwhite(0, 10, 5)
-// .new er her implicit - men angives eksplicit i SuperColliders dokumentation
+Pwhite.new(0, 10, 5)   // .new fremgår eksplicit
+Pwhite(0, 10, 5)       // .new er underforstået
 
 
-/*
-I SuperColliders dokumentation kan man læse nærmere om de fleste methods, som knytter sig til forskellige klasser.
+
+// INSTANCE METHODS bruger vi på "instances", dvs. konkrete forekomster af bestemte typer af objekter
+9.sqrt                 // vi beder om kvadratroden af tallet 9 (9 er en forekomst/instance af klassen SimpleNumber)
+"kaffe".dup            // vi duplicerer teksten "kaffe" (en forekomst/instance af klassen String)
+Pbind.new().play       // vi afspiller en ny Pind (en forekomst/instance af klassen Pbind)
+
+
+// Nogle methods kan styres med input i form af argumenter
+SinOsc.ar(220)         // vi beder om en sinustone-oscillator, som svinger med 220 Hertz
+SinOsc.ar.dup(10)      // vi beder om 10 ens sinustone-oscillatorer
+Pwhite(0, 7)           // vi beder om et pattern, der kan generere tilfældige tal mellem 0 og 7
+
+
+
+
+// Mange methods kan bruges med forskellige slags objekter, fx .play:
+Pbind().play;
+{SinOsc.ar * 0.1}.play;
+Routine({"hej ".post; 1.wait; "med dig".postln;}).play;
+
+// ... men ikke alle objekter!
+10.play       // giver en fejlmeddelelse (.play findes ikke som instance method for SimpleNumber)
+Pbind.play    // giver en fejlmeddelelse (.play findes ikke som class method for Pbind)
+
+
+
+
+
+/* --- Dokumentation ---
+I SuperColliders dokumentation kan man se hvilke methods, som kan passer til forskellige klasser.
 - Slår man en klasse op (fx Array, Pwhite, SinOsc etc.), vil man kunne se de forskellige class methods og instance methods samt hvordan de bruges
-- Slår man en method op (fx .new, .play, .reverse etc.), vil man kunne se de forskellige klasser, som har denne method tilknyttet (klik på klassen for at se hvordan fx .new anvendes inden for den specifikke klasse)    */
+- Slår man en method op (fx .new, .play, .reverse etc.), vil man kunne se de forskellige klasser, som har denne method tilknyttet (klik på klassen for at se hvordan fx .new anvendes inden for den specifikke klasse)
+Placér cursoren sammen med et af kodeudtrykkene herunder og tast Ctrl/Cmd-D for at åbne den dokumentationen.    */
 Array
 Pwhite
 SinOsc

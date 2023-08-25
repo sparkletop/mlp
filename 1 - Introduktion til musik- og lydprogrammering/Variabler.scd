@@ -1,14 +1,15 @@
 /* --- Variabler ---
 
-Vi kan opbevare forskellige former for data i computerens hukommelse ved hjælp af variabler
-Variabler udgør dermed en slags opbevaringsrum, hvor vi kan gemme ting og finde dem frem igen senere
-Dette er ekstremt nytt
+Vi kan opbevare forskellige former for data i computerens hukommelse ved hjælp af variabler.
+
+Variabler kan forstås som en slags opbevaringsrum, hvor vi kan gemme ting og finde dem frem igen senere.
+
 
 Der er to typer variabler: Globale og lokale variabler
 
 
-Globale variabler
-Kan tilgås overalt i et SuperCollider-program
+--- Globale variabler ---
+Kan tilgås (næsten) overalt i et SuperCollider-program
 Noteres med "~", direkte efterfulgt af et passende navn    */
 ~alder;
 ~kaffekop;
@@ -17,10 +18,34 @@ Noteres med "~", direkte efterfulgt af et passende navn    */
 a;
 q;
 
+// For at kunne bruge variabler skal vi kunne definere, tilgå og ændre deres indhold.
+// Indholdet på højre side af lighedstegnet gemmes under variablen ~alder:
+~alder.postln; // tjek først variablens indhold
+~alder = 23;   // gem et tal (også kendt som "assignment")
+~alder.postln; // tjek variablens indhold igen
+
+// Vi kan tilgå og bruge variablens indhold blot ved at bruge dens navn:
+~alder * 100;
+
+// Vi kan omdefinere indholdet med endnu en assignment:
+~alder = 50;
+~alder.postln;
+
+// Variablens nuværende indhold kan anvendes, når man regner en ny værdi ud og gemmer under samme variabelnavn
+~alder = ~alder * 10 + 7;
+~alder.postln;
+
+
+
+// OBS: Variabelnavne SKAL have lille begyndelsesbogstav (fordi klassenavne har stort begyndelsesbogstav)
+~Kaffe   // giver fejlmeddelelse
+
+
+
 /*
-Lokale variabler
-Lan tilgås inden for en afgrænset kodeblok (bestående af () eller {})
-Defineres med nøgleordet "var"    */
+--- Lokale variabler ---
+Kan tilgås inden for en afgrænset kodeblok bestående af () eller {}.
+Lokale variabler defineres med nøgleordet "var" og anvendes uden tilde (~)   */
 (
 var model = "Fabia";
 model.postln; // inden for kodeblokken: viser variablens indhold
@@ -32,20 +57,5 @@ model.postln; // uden for kodeblokken: giver en fejlmeddelelse
 
 
 
-// For at kunne bruge variabler skal vi kunne tilgå og ændre deres indhold
-
-// Vi tilgår indholdet af en variabel
-~alder.postln;
-
-// Indholdet på højre side af lighedstegnet gemmes under variablen ~alder:
-~alder = 23;
-
-// Efter vi har udført en assignment-operation kan vi tilgå og bruge variablens indhold blot ved at bruge dens navn:
-~alder * 100 + 787;
-
-~alder = ~alder * 10 + 7;
-
-
-// OBS: Variabelnavne SKAL have lille begyndelsesbogstav (fordi klassenavne har stort begyndelsesbogstav)
 
 
