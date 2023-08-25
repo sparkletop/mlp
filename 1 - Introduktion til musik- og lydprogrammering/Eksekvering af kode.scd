@@ -38,32 +38,3 @@ Pbind(\degree, [0, 2, 4]).play
 
 
 
-// Herunder fremgår to kodeblokke. Leg med blokkene på følgende måde:
-// 1. Eksekvér kodeblokken for at høre resultatet.
-// 2. Prøv løbende at ændre på tallene og eksekvér kodeblokken igen.
-// 3. Hvad mon de enkelte linjer i kodeblokkene gør?
-(
-Pdef(\eksempel1,
-	Pbind(
-		\degree, Pseq([0, 1, 2, 4], inf),
-		\scale, Scale.minor,
-		\root, 1,
-		\octave, 5,
-		\dur, Prand([0.2, 0.3], inf),
-		\legato, 1.2,
-	)
-).play;
-)
-Pdef(\eksempel1).stop;
-
-(
-Ndef(\eksempel2, {
-	var freq = 330;
-	var lfoFreq = LFTri.kr(0.3).range(1, 16);
-	var lfo = LFNoise0.kr(lfoFreq).bipolar(24).round(4).midiratio;
-	var sig = Pulse.ar(freq * lfo);
-	sig.dup * 0.1;
-}).play;
-)
-Ndef(\eksempel2).stop;
-
