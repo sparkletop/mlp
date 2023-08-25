@@ -48,9 +48,14 @@ Scale.directory;
 
 	var lfoFreqEnd = 10;
 
-	var duration = 5;
+	var duration = 7;
 
-	lfoFreq = Line.kr(lfoFreqStart, lfoFreqEnd, duration, doneAction: Done.freeSelf);
+	lfoFreq = Line.kr(
+		lfoFreqStart,
+		lfoFreqEnd,
+		duration,
+		doneAction: Done.freeSelf
+	);
 
 	lfoFreq = lfoFreq.dup(2);
 
